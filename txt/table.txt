@@ -1,0 +1,49 @@
+médicament:
+cip
+nom
+n_lot
+taux remboursement
+substance active
+date_exp
+prix_unitaire
+ordonnace (oui/non)
+fournisseur
+quantité
+
+médecin:
+
+id
+prénom
+nom
+spécialité
+adresse
+email
+téléphone
+
+commande:
+médicament(
+id
+cip
+nom medicament
+principe actif
+prix unitaire
+fournisseur
+)
+quantité demandé
+
+client:
+id
+nom
+prénom
+no_sécu
+no_mutuel
+
+vente:
+médicament -id-cip-nom-quantité
+client -id-nom
+pharmacien -id
+prix ttc
+
+
+
+

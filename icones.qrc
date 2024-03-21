@@ -1,0 +1,12 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+	<qresource>
+		<file>icones/home.png</file>
+		<file>icones/medicament.png</file>
+		<file>icones/client.png</file>
+		<file>icones/medecin.png</file>
+		<file>icones/vente.png</file>
+		<file>icones/commande.png</file>
+		<file>icones/parametre.png</file>
+	</qresource>
+</RCC>

@@ -2,7 +2,8 @@ import sys
 
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QMessageBox
-from accueil import Accueil
+import mysql.connector
+from accueil import *
 
 class Connexion(QWidget):
     def __init__(self):
@@ -47,7 +48,15 @@ class Connexion(QWidget):
 
         # Ajouter un espace pour agrandir les widgets
 
-    def login(self):
+
+    def connexion(self):
+        mydb = mysql.connector.connect(host="localhost", user="root", password="1308", database="testdb" ) # se connecter la bonne bdd)  # Connexion à la BDD
+        mycursor = mydb.cursor()
+
+        id_connexion = self.entrée_utilisateur.text()
+        mdp_connexion=self.entrée_mdp.text()
+
+    def login(self): #en lcoal
         # Récupère les informations saisies par l'utilisateur
         nom_utilisateur = self.entrée_utilisateur.text()
         mot_de_passe = self.entrée_mdp.text()
@@ -67,7 +76,6 @@ class Connexion(QWidget):
             self.layout().itemAt(i).widget().setParent(None)
 
         # Importe la nouvelle classe et ajoute les nouveaux widgets
-        from accueil import Accueil
         accueil_window = Accueil()
         self.layout().addWidget(accueil_window)
 
