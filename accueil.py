@@ -15,7 +15,46 @@ class Accueil(QMainWindow, ui):
 
         QMainWindow.__init__(self)
         self.setupUi(self)
+        self.changement_interface()
+        self.gestion_boutton()
 
+    def changement_UI(self):
+        pass
+
+    def gestion_boutton(self):
+        self.accueil_boutton.clicked.connect(self.ouvrir_accueil_tab)
+        self.medicament_boutton.clicked.connect(self.ouvrir_medicament_tab)
+        self.client_boutton.clicked.connect(self.ouvrir_client_tab)
+        self.medecin_boutton.clicked.connect(self.ouvrir_medecin_tab)
+        self.vente_boutton.clicked.connect(self.ouvrir_vente_tab)
+        self.commande_boutton.clicked.connect(self.ouvrir_commande_tab)
+        self.parametre_boutton.clicked.connect(self.ouvrir_parametre_tab)
+
+
+##########################################################
+    #ouvrir les fenetres
+
+    def ouvrir_accueil_tab(self):
+        self.tabWidget.setCurrentIndex(0)
+    def ouvrir_medicament_tab(self):
+        self.tabWidget.setCurrentIndex(1)
+
+    def ouvrir_client_tab(self):
+        self.tabWidget.setCurrentIndex(2)
+
+    def ouvrir_medecin_tab(self):
+        self.tabWidget.setCurrentIndex(3)
+
+    def ouvrir_vente_tab(self):
+        self.tabWidget.setCurrentIndex(4)
+
+    def ouvrir_commande_tab(self):
+        self.tabWidget.setCurrentIndex(5)
+
+    def ouvrir_parametre_tab(self):
+        self.tabWidget.setCurrentIndex(6)
+
+    #############################################
     def accueil(self):
         app = QApplication(sys.argv)
         window = Accueil()

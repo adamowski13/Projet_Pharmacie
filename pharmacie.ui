@@ -14,11 +14,11 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="accueil">
+   <widget class="QPushButton" name="accueil_boutton">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>10</y>
+      <x>20</x>
+      <y>60</y>
       <width>81</width>
       <height>71</height>
      </rect>
@@ -40,7 +40,7 @@
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>110</x>
+      <x>140</x>
       <y>0</y>
       <width>721</width>
       <height>571</height>
@@ -53,7 +53,7 @@
      <enum>QTabWidget::Rounded</enum>
     </property>
     <property name="currentIndex">
-     <number>6</number>
+     <number>3</number>
     </property>
     <property name="elideMode">
      <enum>Qt::ElideNone</enum>
@@ -74,6 +74,19 @@
      <attribute name="title">
       <string>accueil</string>
      </attribute>
+     <widget class="QPushButton" name="pushButton_3">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>190</y>
+        <width>89</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>PushButton</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="tab_3">
      <attribute name="title">
@@ -303,11 +316,11 @@
      </widget>
     </widget>
    </widget>
-   <widget class="QPushButton" name="accueil_7">
+   <widget class="QPushButton" name="medicament_boutton">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>80</y>
+      <x>20</x>
+      <y>130</y>
       <width>81</width>
       <height>71</height>
      </rect>
@@ -326,11 +339,11 @@
      </size>
     </property>
    </widget>
-   <widget class="QPushButton" name="accueil_2">
+   <widget class="QPushButton" name="client_boutton">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>150</y>
+      <x>20</x>
+      <y>200</y>
       <width>81</width>
       <height>71</height>
      </rect>
@@ -349,11 +362,11 @@
      </size>
     </property>
    </widget>
-   <widget class="QPushButton" name="accueil_6">
+   <widget class="QPushButton" name="medecin_boutton">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>220</y>
+      <x>20</x>
+      <y>270</y>
       <width>81</width>
       <height>71</height>
      </rect>
@@ -372,11 +385,11 @@
      </size>
     </property>
    </widget>
-   <widget class="QPushButton" name="accueil_3">
+   <widget class="QPushButton" name="vente_boutton">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>290</y>
+      <x>20</x>
+      <y>340</y>
       <width>81</width>
       <height>71</height>
      </rect>
@@ -395,11 +408,11 @@
      </size>
     </property>
    </widget>
-   <widget class="QPushButton" name="accueil_4">
+   <widget class="QPushButton" name="commande_boutton">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>360</y>
+      <x>20</x>
+      <y>410</y>
       <width>81</width>
       <height>71</height>
      </rect>
@@ -418,11 +431,11 @@
      </size>
     </property>
    </widget>
-   <widget class="QPushButton" name="accueil_5">
+   <widget class="QPushButton" name="parametre_boutton">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>430</y>
+      <x>20</x>
+      <y>480</y>
       <width>81</width>
       <height>71</height>
      </rect>
@@ -455,6 +468,7 @@
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources>
+  <include location="design/icones.qrc"/>
   <include location="icones.qrc"/>
  </resources>
  <connections/>
