@@ -1,1 +1,4 @@
 pour le moment, le connexion renvoie vers accueil
+
+bcrypt pour hashage
+sql alchemy pour la bdd connection

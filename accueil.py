@@ -15,11 +15,11 @@ class Accueil(QMainWindow, ui):
 
         QMainWindow.__init__(self)
         self.setupUi(self)
-        self.changement_interface()
+        self.changement_UI()
         self.gestion_boutton()
 
     def changement_UI(self):
-        pass
+        self.tabWidget.tabBar().setVisible(False)
 
     def gestion_boutton(self):
         self.accueil_boutton.clicked.connect(self.ouvrir_accueil_tab)
@@ -29,10 +29,9 @@ class Accueil(QMainWindow, ui):
         self.vente_boutton.clicked.connect(self.ouvrir_vente_tab)
         self.commande_boutton.clicked.connect(self.ouvrir_commande_tab)
         self.parametre_boutton.clicked.connect(self.ouvrir_parametre_tab)
-
-
 ##########################################################
-    #ouvrir les fenetres
+#"""
+    """"""
 
     def ouvrir_accueil_tab(self):
         self.tabWidget.setCurrentIndex(0)
@@ -71,6 +70,8 @@ class Accueil(QMainWindow, ui):
 """
 ####################################
 #les fonctions suivantes sont reliés aux requếtes SQL
+
+
     def Afficher_medicament(self):
         self.db = mysql.connector.connect(host='localhost', user='root', password='1308', db='medicament')
         self.curseur = self.db.cursor()

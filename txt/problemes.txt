@@ -1,3 +1,5 @@
 -comment gérer le codes barres des médicaments pour l'entrée
 
 -identifier les données recupérables depuis la BDD et définir les widgets grace a ça
+
+-ajouter les couleurs dans paramètres thèmes comme sur ytb

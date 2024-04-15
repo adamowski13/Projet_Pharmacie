@@ -1,4 +1,4 @@
-f*
+
         QMainWindow.__init__(self)
         self.setupUi(self)
 

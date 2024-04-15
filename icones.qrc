@@ -8,5 +8,6 @@
 		<file>icones/vente.png</file>
 		<file>icones/commande.png</file>
 		<file>icones/parametre.png</file>
+		<file>icones/pharmacie.png</file>
 	</qresource>
 </RCC>

@@ -16,6 +16,7 @@ class Connexion(QWidget):
         # Configure les propriétés de la fenêtre principale
         self.setWindowTitle('Écran de Connexion')
         self.setGeometry(300, 300, 500, 500)  # Augmenter la taille de la fenêtre
+        #self.setGeometry(0, 0, 1920, 1080) a ajouter apres les tests
 
         # Crée des widgets pour la saisie utilisateur et le bouton de connexion
         self.label_utilisateur = QLabel("Nom d'utilisateur")
@@ -32,11 +33,11 @@ class Connexion(QWidget):
 
         # Configure la mise en page de la fenêtre avec un layout vertical
         layout = QVBoxLayout()
-        layout.addWidget(self.label_utilisateur, alignment=Qt.AlignCenter)  # Centrer le label
+        layout.addWidget(self.label_utilisateur, alignment=Qt.AlignLeft)  # Centrer le label
         layout.addWidget(self.entrée_utilisateur)
-        layout.addWidget(self.label_mdp, alignment=Qt.AlignCenter)  # Centrer le label
+        layout.addWidget(self.label_mdp, alignment=Qt.AlignLeft)  # Centrer le label
         layout.addWidget(self.entrée_mdp)
-        layout.addWidget(self.bouton_connexion, alignment=Qt.AlignCenter)  # Centrer le bouton
+        layout.addWidget(self.bouton_connexion, alignment=Qt.AlignLeft)  # Centrer le bouton
 
         self.setLayout(layout)
 
