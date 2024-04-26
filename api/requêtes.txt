@@ -1,0 +1,76 @@
+-- Table pour le fichier des spécialités
+CREATE TABLE Specialites (
+    Code_CIS INT PRIMARY KEY,
+    Denomination_medicament VARCHAR(255),
+    Forme_pharmaceutique VARCHAR(100),
+    Voies_administration VARCHAR(255),
+    Statut_AMM VARCHAR(50),
+    Type_procedure_AMM VARCHAR(50),
+    Etat_commercialisation VARCHAR(50),
+    Date_AMM DATE,
+    StatutBdm VARCHAR(50),
+    Numero_autorisation_europeenne VARCHAR(50),
+    Titulaires VARCHAR(255),
+    Surveillance_renforcee VARCHAR(3)
+);
+
+-- Table pour le fichier des présentations
+CREATE TABLE Presentations (
+    Code_CIS INT,
+    Code_CIP7 VARCHAR(10) PRIMARY KEY,
+    Libelle_presentation VARCHAR(255),
+    Statut_administratif_presentation VARCHAR(50),
+    Etat_commercialisation_presentation VARCHAR(50),
+    Date_declaration_commercialisation DATE,
+    Code_CIP13 VARCHAR(13),
+    Agrement_aux_collectivites VARCHAR(10),
+    Taux_remboursement VARCHAR(255),
+    Prix_euro DECIMAL(10, 2),
+    Indications_remboursement_assurance_maladie TEXT,
+    FOREIGN KEY (Code_CIS) REFERENCES Specialites(Code_CIS)
+);
+
+-- Table pour le fichier des compositions
+CREATE TABLE Compositions (
+    Code_CIS INT,
+    Designation_element_pharmaceutique VARCHAR(255),
+    Code_substance VARCHAR(10),
+    Denomination_substance VARCHAR(100),
+    Dosage_substance VARCHAR(50),
+    Reference_dosage VARCHAR(100),
+    Nature_composant VARCHAR(10),
+    Numero_lien_substance INT,
+    FOREIGN KEY (Code_CIS) REFERENCES Specialites(Code_CIS)
+);
+
+-- Table pour le fichier des groupes génériques
+CREATE TABLE Groupes_generiques (
+    Identifiant_groupe_generique INT PRIMARY KEY,
+    Libelle_groupe_generique VARCHAR(255),
+    Code_CIS INT,
+    Type_generique INT,
+    Numero_tri INT,
+    FOREIGN KEY (Code_CIS) REFERENCES Specialites(Code_CIS)
+);
+
+-- Table pour le fichier des conditions de prescription et de délivrance
+CREATE TABLE Conditions_prescription_delivrance (
+    Code_CIS INT,
+    Condition_prescription_delivrance VARCHAR(255),
+    FOREIGN KEY (Code_CIS) REFERENCES Specialites(Code_CIS)
+);
+
+
+
+INSERT INTO Specialites (Code_CIS, Denomination_medicament, Forme_pharmaceutique, Voies_administration, Statut_AMM, Type_procedure_AMM, Etat_commercialisation, Date_AMM, StatutBdm, Numero_autorisation_europeenne, Titulaires, Surveillance_renforcee) 
+VALUES 
+(61266250, 'A 313 200 000 UI POUR CENT, pommade', 'pommade', 'cutanée', 'Autorisation active', 'Procédure nationale', 'Commercialisée', '1998-03-12', NULL, NULL, 'PHARMA DEVELOPPEMENT', 'Non'),
+(62869109, 'A 313 50 000 U.I., capsule molle', 'capsule molle', 'orale', 'Autorisation active', 'Procédure nationale', 'Commercialisée', '1997-07-07', NULL, NULL, 'PHARMA DEVELOPPEMENT', 'Non');
+
+
+
+INSERT INTO Presentations (Code_CIS, Code_CIP7, Libelle_presentation, Statut_administratif_presentation, Etat_commercialisation_presentation, Date_declaration_commercialisation, Code_CIP13, Agrement_aux_collectivites, Taux_remboursement, Prix_euro, Indications_remboursement_assurance_maladie) 
+VALUES 
+(61266250, '3000147', '1 tube(s) aluminium verni de 50 g', 'Présentation active', 'Déclaration de commercialisation', '1965-01-19', '3400930001479', 'non', '30%', 1.61, "2.63, 1.02");
+
+

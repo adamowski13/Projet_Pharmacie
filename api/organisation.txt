@@ -1,0 +1,84 @@
+3.1. Fichier des spécialités
+Le nom de ce fichier est : CIS_bdpm.txt
+Il contient la liste des médicaments commercialisés ou en arrêt de commercialisation depuis
+moins de deux ans.
+Les éléments mis à disposition dans ce fichier sont les suivants :
+- Code CIS (Code Identifiant de Spécialité)
+- Dénomination du médicament
+- Forme pharmaceutique
+- Voies d'administration (avec un séparateur « ; » entre chaque valeur quand il y en a
+plusieurs)
+- Statut administratif de l’autorisation de mise sur le marché (AMM)
+- Type de procédure d'autorisation de mise sur le marché (AMM)
+- Etat de commercialisation
+- Date d’AMM (format JJ/MM/AAAA)
+- StatutBdm : valeurs possibles : « Alerte » (icône rouge) ou « Warning disponibilité »
+(icône grise)
+- Numéro de l’autorisation européenne
+- Titulaire(s) : S’il y a plusieurs titulaires, les valeurs seront séparées par des « ; »
+- Surveillance renforcée (triangle noir) : valeurs « Oui » ou « Non »
+
+
+3.2. Fichier des présentations
+Le nom de ce fichier est : CIS_CIP_bdpm.txt
+Il contient la liste des présentations (boîtes de médicaments) disponibles pour les
+médicaments présents dans le fichier décrit dans le paragraphe 3.1.
+Les éléments mis à disposition dans ce fichier sont les suivants :
+- Code CIS
+- Code CIP7 (Code Identifiant de Présentation à 7 chiffres)
+- Libellé de la présentation
+- Statut administratif de la présentation
+- Etat de commercialisation de la présentation tel que déclaré par le titulaire de l'AMM
+- Date de la déclaration de commercialisation (format JJ/MM/AAAA)
+- Code CIP13 (Code Identifiant de Présentation à 13 chiffres)
+- Agrément aux collectivités ("oui", "non" ou « inconnu »)
+- Taux de remboursement (avec un séparateur « ; » entre chaque valeur quand il y en a
+plusieurs)
+- Prix du médicament en euro
+- Texte présentant les indications ouvrant droit au remboursement par l’assurance
+maladie s’il y a plusieurs taux de remboursement pour la même présentation.
+
+
+
+3.3. Fichier des compositions
+Le nom de ce fichier est : CIS_COMPO_bdpm.txt
+Il contient la composition qualitative et quantitative en substances actives et fractions
+thérapeutiques (telle que figurant dans le Résumé des Caractéristiques du Produit) des
+médicaments de la BDPM.
+Les éléments mis à disposition dans ce fichier sont les suivants :
+- Code CIS
+- Désignation de l'élément pharmaceutique
+- Code de la substance
+- Dénomination de la substance
+- Dosage de la substance
+- Référence de ce dosage (exemple : "[pour] un comprimé")
+- Nature du composant (principe actif : « SA » ou fraction thérapeutique : « ST »)
+- Numéro permettant de lier, le cas échéant, substances actives et fractions
+thérapeutiques
+
+
+3.7. Fichier des groupes génériques
+Le nom de ce fichier est : CIS_GENER_bdpm.txt
+Il contient l’ensemble groupes génériques, avec les médicaments en faisant partie.
+Les éléments mis à disposition dans ce fichier sont les suivants :
+- Identifiant du groupe générique
+- Libellé du groupe générique
+- Code CIS
+- Type de générique, avec les valeurs suivantes :
+o 0 : « princeps »
+o 1 : « générique »
+o 2 : « génériques par complémentarité posologique »
+o 4 : « générique substituable »
+- Numéro permettant de trier les éléments d’un groupe
+
+
+3.8. Fichier des conditions de prescription et de délivrance
+Le nom de ce fichier est : CIS_CPD_bdpm.txt
+Il contient l’ensemble des conditions de prescription et de délivrance associées à un
+médicament.
+Les éléments mis à disposition dans ce fichier sont les suivants :
+- Code CIS
+- Condition de prescription ou de délivrance
+
+
+
