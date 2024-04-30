@@ -29,6 +29,9 @@ class Accueil(QMainWindow, ui):
         self.vente_boutton.clicked.connect(self.ouvrir_vente_tab)
         self.commande_boutton.clicked.connect(self.ouvrir_commande_tab)
         self.parametre_boutton.clicked.connect(self.ouvrir_parametre_tab)
+
+        self.pushButton_2.clicked.connect(self.ajouter_client)
+
 ##########################################################
 #"""
     """"""
@@ -65,8 +68,28 @@ class Accueil(QMainWindow, ui):
 
 
 
+    def ajouter_client(self):
+        mydb = mysql.connector.connect(
+            host="localhost",
+            user="root",
+            password="1308",
+            database="testdb"
+        )
+        mycursor = mydb.cursor()
 
-
+        nom = self.lineEdit_2.text()
+        prenom= self.lineEdit_3.text()
+        no_secu= self.lineEdit_4.text()
+        no_mutuel= self.lineEdit_5.text()
+        no_tel=self.lineEdit_12.text()
+        try:
+            mycursor.execute(
+                """INSERT INTO client (nom, prenom, noSecu, noMutuel, noTel) VALUES (%s, %s, %s, %s, %s)""",
+                (nom, prenom, no_secu, no_mutuel, no_tel))
+            mydb.commit()  # N'oubliez pas de valider les changements
+            print("Client ajouté avec succès!")
+        except mysql.connector.Error as err:
+            print("Erreur lors de l'ajout du client:", err)
 """
 ####################################
 #les fonctions suivantes sont reliés aux requếtes SQL
@@ -93,11 +116,19 @@ class Accueil(QMainWindow, ui):
         self.db.close()
 
     
-mydb = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="1308",
-    database="testdb" #se connecter la bonne bdd
-)  # Connexion à la BDD
+            mydb = mysql.connector.connect(
+                host="localhost",
+                user="root",
+                password="1308",
+                database="testdb"
+            )
+            mycursor = mydb.cursor()
 
-mycursor = mydb.cursor()"""
+            # Exécute la requête pour vérifier les informations d'identification
+            mycursor.execute("SELECT * FROM utilisateurs WHERE nom_utilisateur = %s AND mot_de_passe = %s", (nom_utilisateur, hashed_password))
+            utilisateur = mycursor.fetchone()
+            
+                        mycursor = mydb.cursor()
+
+                mycursor.execute("SELECT * FROM CLIENT,")
+                clients = mycursor.fetchone()"""

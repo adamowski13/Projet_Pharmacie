@@ -1,8 +1,8 @@
 import sys
-
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QLineEdit, QPushButton, QVBoxLayout, QMessageBox
 import mysql.connector
+import hashlib
 from accueil import *
 
 class Connexion(QWidget):
@@ -15,11 +15,10 @@ class Connexion(QWidget):
     def init_ui(self):
         # Configure les propriétés de la fenêtre principale
         self.setWindowTitle('Écran de Connexion')
-        self.setGeometry(300, 300, 500, 500)  # Augmenter la taille de la fenêtre
-        #self.setGeometry(0, 0, 1920, 1080) a ajouter apres les tests
+        self.setGeometry(300, 300, 800, 500)  # Augmenter la taille de la fenêtre
 
         # Crée des widgets pour la saisie utilisateur et le bouton de connexion
-        self.label_utilisateur = QLabel("Nom d'utilisateur")
+        self.label_utilisateur = QLabel("Nom d'utilisateur",)
         self.label_mdp = QLabel("Mot de passe:")
         self.entrée_utilisateur = QLineEdit()
         self.entrée_mdp = QLineEdit()
@@ -47,28 +46,40 @@ class Connexion(QWidget):
         # Affiche la fenêtre
         self.show()
 
-        # Ajouter un espace pour agrandir les widgets
-
-
-    def connexion(self):
-        mydb = mysql.connector.connect(host="localhost", user="root", password="1308", database="testdb" ) # se connecter la bonne bdd)  # Connexion à la BDD
-        mycursor = mydb.cursor()
-
-        id_connexion = self.entrée_utilisateur.text()
-        mdp_connexion=self.entrée_mdp.text()
-
-    def login(self): #en lcoal
+    def login(self):
         # Récupère les informations saisies par l'utilisateur
         nom_utilisateur = self.entrée_utilisateur.text()
         mot_de_passe = self.entrée_mdp.text()
 
-        # Vérifie les informations de connexion
-        if nom_utilisateur == 'root' and mot_de_passe == '1308':
-            QMessageBox.information(self, 'Connexion Réussie', 'Bienvenue, {}'.format(nom_utilisateur))
-            self.change_content()  # Appel de la fonction pour changer le contenu
+        # Hash le mot de passe
+        hashed_password = hashlib.sha256(mot_de_passe.encode()).hexdigest()
 
-        else:
-            QMessageBox.warning(self, 'Connexion Échouée', 'Nom d\'utilisateur ou mot de passe incorrect')
+        # Se connecte à la base de données
+        try:
+            mydb = mysql.connector.connect(
+                host="localhost",
+                user="root",
+                password="1308",
+                database="testdb"
+            )
+            mycursor = mydb.cursor()
+
+            # Exécute la requête pour vérifier les informations d'identification
+            mycursor.execute("SELECT * FROM utilisateurs WHERE nom_utilisateur = %s AND mot_de_passe = %s", (nom_utilisateur, hashed_password))
+            utilisateur = mycursor.fetchone()
+
+            if utilisateur:
+                QMessageBox.information(self, 'Connexion Réussie', 'Bienvenue, {}'.format(nom_utilisateur))
+                self.change_content()  # Appel de la fonction pour changer le contenu
+            else:
+                QMessageBox.warning(self, 'Connexion Échouée', 'Nom d\'utilisateur ou mot de passe incorrect')
+
+            # Ferme la connexion à la base de données
+            mycursor.close()
+            mydb.close()
+
+        except mysql.connector.Error as error:
+            print("Erreur lors de la connexion à la base de données:", error)
 
     def change_content(self):
         self.setWindowTitle('Écran d\'Accueil')

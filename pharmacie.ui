@@ -21,10 +21,10 @@
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>79</x>
-      <y>0</y>
-      <width>1840</width>
-      <height>1080</height>
+      <x>98</x>
+      <y>-1</y>
+      <width>1821</width>
+      <height>1081</height>
      </rect>
     </property>
     <property name="tabPosition">
@@ -34,7 +34,7 @@
      <enum>QTabWidget::Rounded</enum>
     </property>
     <property name="currentIndex">
-     <number>4</number>
+     <number>2</number>
     </property>
     <property name="elideMode">
      <enum>Qt::ElideNone</enum>
@@ -55,19 +55,6 @@
      <attribute name="title">
       <string>accueil</string>
      </attribute>
-     <widget class="QPushButton" name="pushButton_3">
-      <property name="geometry">
-       <rect>
-        <x>220</x>
-        <y>190</y>
-        <width>89</width>
-        <height>25</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>PushButton</string>
-      </property>
-     </widget>
     </widget>
     <widget class="QWidget" name="tab_3">
      <attribute name="title">
@@ -78,10 +65,65 @@
        <rect>
         <x>10</x>
         <y>180</y>
-        <width>671</width>
-        <height>341</height>
+        <width>1101</width>
+        <height>601</height>
        </rect>
       </property>
+      <column>
+       <property name="text">
+        <string>id</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>cip</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>nom</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>n_lot</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>taux remboursement</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>substance active</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>date exp</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>prix unitaire</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>ordonnance</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>fournisseur</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>quantité</string>
+       </property>
+      </column>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_4">
@@ -96,6 +138,12 @@
         <width>711</width>
         <height>341</height>
        </rect>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>711</width>
+        <height>341</height>
+       </size>
       </property>
       <column>
        <property name="text">
@@ -122,6 +170,16 @@
         <string>no_mutuel</string>
        </property>
       </column>
+      <column>
+       <property name="text">
+        <string>no_tel</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>achat</string>
+       </property>
+      </column>
      </widget>
      <widget class="QLineEdit" name="lineEdit_2">
       <property name="geometry">
@@ -139,7 +197,7 @@
      <widget class="QPushButton" name="pushButton_2">
       <property name="geometry">
        <rect>
-        <x>580</x>
+        <x>620</x>
         <y>40</y>
         <width>89</width>
         <height>25</height>
@@ -165,7 +223,7 @@
        <string>prénom</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_4">
+     <widget class="QLineEdit" name="lineEdit_5">
       <property name="geometry">
        <rect>
         <x>370</x>
@@ -181,7 +239,7 @@
        <string>no_mutuel</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_5">
+     <widget class="QLineEdit" name="lineEdit_4">
       <property name="geometry">
        <rect>
         <x>250</x>
@@ -194,6 +252,61 @@
        <string>no_sécu</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="pushButton_4">
+      <property name="geometry">
+       <rect>
+        <x>580</x>
+        <y>100</y>
+        <width>89</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>rechercher</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_6">
+      <property name="geometry">
+       <rect>
+        <x>370</x>
+        <y>100</y>
+        <width>113</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>nom</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_7">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>100</y>
+        <width>113</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>id</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_12">
+      <property name="geometry">
+       <rect>
+        <x>490</x>
+        <y>40</y>
+        <width>113</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="placeholderText">
+       <string>no_tel</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="tab_5">
      <attribute name="title">
@@ -202,11 +315,23 @@
      <widget class="QTableWidget" name="tableWidget_2">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>170</y>
-        <width>711</width>
-        <height>341</height>
+        <x>0</x>
+        <y>169</y>
+        <width>1211</width>
+        <height>671</height>
        </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>671</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>1211</width>
+        <height>671</height>
+       </size>
       </property>
       <column>
        <property name="text">
@@ -247,8 +372,8 @@
      <widget class="QPushButton" name="pushButton">
       <property name="geometry">
        <rect>
-        <x>260</x>
-        <y>70</y>
+        <x>290</x>
+        <y>100</y>
         <width>89</width>
         <height>25</height>
        </rect>
@@ -261,13 +386,107 @@
       <property name="geometry">
        <rect>
         <x>40</x>
-        <y>70</y>
+        <y>100</y>
         <width>211</width>
         <height>25</height>
        </rect>
       </property>
       <property name="placeholderText">
        <string>entrer le nom du médecin</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_8">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>20</y>
+        <width>113</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="placeholderText">
+       <string>nom</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_9">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>20</y>
+        <width>113</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>prénom</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_10">
+      <property name="geometry">
+       <rect>
+        <x>280</x>
+        <y>20</y>
+        <width>113</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>spécialité</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_15">
+      <property name="geometry">
+       <rect>
+        <x>640</x>
+        <y>20</y>
+        <width>113</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>téléphone</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_16">
+      <property name="geometry">
+       <rect>
+        <x>400</x>
+        <y>20</y>
+        <width>113</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>adresse</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_17">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>20</y>
+        <width>113</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>e-mail</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_5">
+      <property name="geometry">
+       <rect>
+        <x>770</x>
+        <y>20</y>
+        <width>89</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>ajouter</string>
       </property>
      </widget>
     </widget>
@@ -280,10 +499,21 @@
        <rect>
         <x>0</x>
         <y>170</y>
-        <width>1181</width>
-        <height>671</height>
+        <width>1111</width>
+        <height>601</height>
        </rect>
       </property>
+      <property name="maximumSize">
+       <size>
+        <width>1181</width>
+        <height>671</height>
+       </size>
+      </property>
+      <property name="rowCount">
+       <number>2</number>
+      </property>
+      <row/>
+      <row/>
       <column>
        <property name="text">
         <string>id_vente</string>
@@ -291,7 +521,27 @@
       </column>
       <column>
        <property name="text">
-        <string>produit(s)</string>
+        <string>id_pharmacien</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>id_médicament</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>nom_médicament</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>id_client</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>nom_client</string>
        </property>
       </column>
       <column>
@@ -301,14 +551,48 @@
       </column>
       <column>
        <property name="text">
-        <string>produits</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
         <string>prix TTC</string>
        </property>
       </column>
+     </widget>
+     <widget class="QPushButton" name="pushButton_6">
+      <property name="geometry">
+       <rect>
+        <x>480</x>
+        <y>30</y>
+        <width>161</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>créer une vente</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_11">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>100</y>
+        <width>113</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>nom_client</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_7">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>100</y>
+        <width>89</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>rechercher</string>
+      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_6">
@@ -320,23 +604,13 @@
      <attribute name="title">
       <string>paramètres</string>
      </attribute>
-     <widget class="QFontComboBox" name="fontComboBox">
-      <property name="geometry">
-       <rect>
-        <x>130</x>
-        <y>160</y>
-        <width>228</width>
-        <height>25</height>
-       </rect>
-      </property>
-     </widget>
     </widget>
    </widget>
    <widget class="QPushButton" name="medicament_boutton">
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>70</y>
+      <y>110</y>
       <width>80</width>
       <height>80</height>
      </rect>
@@ -359,7 +633,7 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>210</y>
+      <y>330</y>
       <width>80</width>
       <height>80</height>
      </rect>
@@ -382,7 +656,7 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>350</y>
+      <y>550</y>
       <width>80</width>
       <height>80</height>
      </rect>
@@ -405,7 +679,7 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>140</y>
+      <y>220</y>
       <width>80</width>
       <height>80</height>
      </rect>
@@ -428,7 +702,7 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>280</y>
+      <y>440</y>
       <width>80</width>
       <height>80</height>
      </rect>
@@ -469,12 +743,15 @@
       <height>60</height>
      </size>
     </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
    </widget>
    <widget class="QPushButton" name="parametre_boutton">
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>420</y>
+      <y>650</y>
       <width>80</width>
       <height>80</height>
      </rect>
@@ -491,6 +768,123 @@
       <width>60</width>
       <height>60</height>
      </size>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>80</y>
+      <width>67</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>acceuil</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>860</x>
+      <y>1020</y>
+      <width>67</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>accueil</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>850</x>
+      <y>1020</y>
+      <width>67</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>accueil</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>190</y>
+      <width>91</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>médicament</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>300</y>
+      <width>67</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>client</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>410</y>
+      <width>67</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>médecin</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>520</y>
+      <width>67</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>vente</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_8">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>630</y>
+      <width>81</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>commande</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_9">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>730</y>
+      <width>91</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>paramètres</string>
     </property>
    </widget>
   </widget>

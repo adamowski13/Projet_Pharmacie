@@ -1,19 +1,11 @@
-import mysql.connector
+import hashlib
 
+def hash_string(string):
+    # Hash la chaîne de caractères en utilisant SHA-256
+    hashed_string = hashlib.sha256(string.encode()).hexdigest()
+    return hashed_string
 
-mydb = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="1308",
-    database="testdb" #se connecter la bonne bdd
-)  # Connexion à la BDD
-
-mycursor = mydb.cursor()
-
-mycursor.execute("SELECT * FROM table_name;")
-
-
-rows = mycursor.fetchall()
-
-for row in rows:
-    print(row)
+# Exemple d'utilisation de la fonction
+string_to_hash = "1308"
+hashed_result = hash_string(string_to_hash)
+print("Le hash de la chaîne '{}' est : {}".format(string_to_hash, hashed_result))
