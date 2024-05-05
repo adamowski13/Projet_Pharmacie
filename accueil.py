@@ -17,6 +17,8 @@ class Accueil(QMainWindow, ui):
         self.setupUi(self)
         self.changement_UI()
         self.gestion_boutton()
+        self.afficher_client()
+        """self.afficher_medicaments()"""
 
     def changement_UI(self):
         self.tabWidget.tabBar().setVisible(False)
@@ -29,8 +31,8 @@ class Accueil(QMainWindow, ui):
         self.vente_boutton.clicked.connect(self.ouvrir_vente_tab)
         self.commande_boutton.clicked.connect(self.ouvrir_commande_tab)
         self.parametre_boutton.clicked.connect(self.ouvrir_parametre_tab)
-
         self.pushButton_2.clicked.connect(self.ajouter_client)
+        self.pushButton_5.clicked.connect(self.ajouter_medecin)
 
 ##########################################################
 #"""
@@ -87,9 +89,120 @@ class Accueil(QMainWindow, ui):
                 """INSERT INTO client (nom, prenom, noSecu, noMutuel, noTel) VALUES (%s, %s, %s, %s, %s)""",
                 (nom, prenom, no_secu, no_mutuel, no_tel))
             mydb.commit()  # N'oubliez pas de valider les changements
-            print("Client ajouté avec succès!")
+            QMessageBox.information(self, 'Succès', 'Client ajouté avec succès!')
+            self.afficher_client()
+            self.lineEdit_2.setText('')
+            self.lineEdit_3.setText('')
+            self.lineEdit_4.setText('')
+            self.lineEdit_5.setText('')
+            self.lineEdit_12.setText('')
         except mysql.connector.Error as err:
-            print("Erreur lors de l'ajout du client:", err)
+            QMessageBox.warning(self, 'Erreur', f"Erreur lors de l'ajout du client: {err}")
+
+
+
+    def ajouter_medecin(self):
+        mydb = mysql.connector.connect(
+            host="localhost",
+            user="root",
+            password="1308",
+            database="testdb"
+        )
+        mycursor = mydb.cursor()
+
+        nom = self.lineEdit_8.text()
+        prenom= self.lineEdit_9.text()
+        spé= self.lineEdit_10.text()
+        adresse= self.lineEdit_16.text()
+        email=self.lineEdit_17.text()
+        tel=self.lineEdit_15.text()
+        try:
+            mycursor.execute(
+                """INSERT INTO medecin (nom, prenom, specialite, adresse, email, noTel) VALUES (%s, %s, %s, %s, %s, %s)""",
+                (nom, prenom, spé, adresse, email,tel))
+            mydb.commit()  # N'oubliez pas de valider les changements
+            QMessageBox.information(self, 'Succès', 'médecin ajouté avec succès!')
+            self.lineEdit_8.setText('')
+            self.lineEdit_9.setText('')
+            self.lineEdit_10.setText('')
+            self.lineEdit_16.setText('')
+            self.lineEdit_17.setText('')
+            self.lineEdit_15.setText('')
+        except mysql.connector.Error as err:
+            QMessageBox.warning(self, 'Erreur', f"Erreur lors de l'ajout du médecin: {err}")
+
+    def afficher_client(self):
+        mydb = mysql.connector.connect(
+            host="localhost",
+            user="root",
+            password="1308",
+            database="testdb"
+        )
+        mycursor = mydb.cursor()
+        mycursor.execute("""SELECT * FROM client""")
+        donnees = mycursor.fetchall()
+
+        if donnees:
+            self.tableWidget_client.setRowCount(0)
+            self.tableWidget_client.insertRow(0)
+            for ligne, tab in enumerate(donnees):#parcours les lignes
+                for colonne, objet in enumerate(tab): #parcours les colonnes pour placer les données une par une
+                    self.tableWidget_client.setItem(ligne, colonne, QTableWidgetItem(str(objet)))
+                    colonne=+1
+                position_ligne = self.tableWidget_client.rowCount()#enregistre le numero de ligne
+                self.tableWidget_client.insertRow(position_ligne)
+
+    def creer_vente(self):
+        mydb = mysql.connector.connect(
+            host="localhost",
+            user="root",
+            password="1308",
+            database="testdb"
+        )
+        mycursor = mydb.cursor()
+    def afficher_medicaments(self):
+        mydb = mysql.connector.connect(
+            host="localhost",
+            user="root",
+            password="1308",
+            database="testdb"
+        )
+        mycursor = mydb.cursor()
+    def rechercher_medicament_nom(self):
+        mydb = mysql.connector.connect(
+            host="localhost",
+            user="root",
+            password="1308",
+            database="testdb"
+        )
+        mycursor = mydb.cursor()
+    def rechercher_medicament_cip(self):#recherche par numéro de série du medoc cip
+        mydb = mysql.connector.connect(
+            host="localhost",
+            user="root",
+            password="1308",
+            database="testdb"
+        )
+        mycursor = mydb.cursor()
+
+    def join_medoc(self):
+        mydb = mysql.connector.connect(
+            host="localhost",
+            user="root",
+            password="1308",
+            database="testdb"
+        )
+        mycursor = mydb.cursor()
+
+
+
+
+
+
+
+
+
+
 """
 ####################################
 #les fonctions suivantes sont reliés aux requếtes SQL

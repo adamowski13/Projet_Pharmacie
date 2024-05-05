@@ -130,7 +130,7 @@
      <attribute name="title">
       <string>client</string>
      </attribute>
-     <widget class="QTableWidget" name="tableWidget_3">
+     <widget class="QTableWidget" name="tableWidget_client">
       <property name="geometry">
        <rect>
         <x>0</x>
@@ -484,6 +484,9 @@
         <width>89</width>
         <height>25</height>
        </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>BusyCursor</cursorShape>
       </property>
       <property name="text">
        <string>ajouter</string>
