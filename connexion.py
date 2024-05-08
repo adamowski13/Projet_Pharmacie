@@ -83,12 +83,13 @@ class Connexion(QWidget):
 
     def change_content(self):
         self.setWindowTitle('Écran d\'Accueil')
+        user_id=self.entrée_utilisateur.text()
         # Supprime tous les widgets de la fenêtre de connexion
         for i in reversed(range(self.layout().count())):
             self.layout().itemAt(i).widget().setParent(None)
 
         # Importe la nouvelle classe et ajoute les nouveaux widgets
-        accueil_window = Accueil()
+        accueil_window = Accueil(user_id)
         self.layout().addWidget(accueil_window)
 
 if __name__ == '__main__':
