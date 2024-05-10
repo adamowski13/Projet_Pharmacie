@@ -9,5 +9,7 @@
 		<file>icones/commande.png</file>
 		<file>icones/parametre.png</file>
 		<file>icones/pharmacie.png</file>
+		<file>icones/utilisateur.png</file>
+		<file>icones/stock.png</file>
 	</qresource>
 </RCC>

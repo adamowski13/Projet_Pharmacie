@@ -15,7 +15,7 @@ class Connexion(QWidget):
     def init_ui(self):
         # Configure les propriétés de la fenêtre principale
         self.setWindowTitle('Écran de Connexion')
-        self.setGeometry(300, 300, 800, 500)  # Augmenter la taille de la fenêtre
+        self.setGeometry(100, 100, 1000, 800)  # Augmenter la taille de la fenêtre
 
         # Crée des widgets pour la saisie utilisateur et le bouton de connexion
         self.label_utilisateur = QLabel("Nom d'utilisateur",)
@@ -35,6 +35,7 @@ class Connexion(QWidget):
         layout.addWidget(self.label_utilisateur, alignment=Qt.AlignLeft)  # Centrer le label
         layout.addWidget(self.entrée_utilisateur)
         layout.addWidget(self.label_mdp, alignment=Qt.AlignLeft)  # Centrer le label
+        # Affiche la fenêtre
         layout.addWidget(self.entrée_mdp)
         layout.addWidget(self.bouton_connexion, alignment=Qt.AlignLeft)  # Centrer le bouton
 
@@ -42,11 +43,11 @@ class Connexion(QWidget):
 
         # Connecte le clic sur le bouton à la fonction de connexion
         self.bouton_connexion.clicked.connect(self.login)
-
-        # Affiche la fenêtre
         self.show()
 
+
     def login(self):
+
         # Récupère les informations saisies par l'utilisateur
         nom_utilisateur = self.entrée_utilisateur.text()
         mot_de_passe = self.entrée_mdp.text()
