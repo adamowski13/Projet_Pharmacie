@@ -1,55 +1,44 @@
-import re
 import mysql.connector
 
-# Connexion à la base de données MySQL
+# Connexion à la base de données
 mydb = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="1308",
-    database="testdb"
+    host="mysql-pharmacieapi.alwaysdata.net",
+    user="358438_admin",
+    password="Bartra-23!",
+    database="pharmacieapi_data"
 )
 mycursor = mydb.cursor()
 
-# Création de la table
-mycursor.execute('''CREATE TABLE IF NOT EXISTS Groupes_generiques (
-             Identifiant_groupe_generique INT,
-             Libelle_groupe_generique VARCHAR(255),
-             Code_CIS INT,
-             Type_generique INT,
-             Numero_tri INT,
-             FOREIGN KEY (Code_CIS) REFERENCES Specialites (Code_CIS)
-             )''')
+# Désactiver temporairement la vérification des clés étrangères
+mycursor.execute("SET FOREIGN_KEY_CHECKS=0")
 
-# Lecture du fichier et insertion des données dans la table
-with open('../api/generiques.txt', 'r', encoding='latin1') as file:
-    for line in file:
-        # Split des données en utilisant l'espace comme séparateur
-        data = re.split(r'\s{2,}', line.strip())
+# Lecture du fichier texte et extraction des données
+with open("../api/generiques.txt", "r", encoding="ISO-8859-1") as file:
+    lines = file.readlines()
 
-        # Vérifier si la liste data contient suffisamment d'éléments
-        if len(data) < 3:
-            print("La ligne est mal formatée et sera ignorée:", line.strip())
-            continue
+donnees = [line.strip().split("\t") for line in lines]
 
-        # Assurer que le Code_CIS est un entier
-        try:
-            code_cis = int(data[2])
-        except ValueError:
-            print("Le Code_CIS n'est pas un entier et la ligne sera ignorée:", line.strip())
-            continue
+# Requête SQL pour l'insertion des données
+sql = "INSERT INTO Groupes_generiques (Identifiant_groupe_generique, Libelle_groupe_generique, Code_CIS, Type_generique, Numero_tri) VALUES (%s, %s, %s, %s, %s)"
 
-        # Vérification si le Code_CIS existe dans la table Specialites
-        mycursor.execute("SELECT COUNT(*) FROM Specialites WHERE Code_CIS = %s", (code_cis,))
-        result = mycursor.fetchone()[0]  # Récupère le nombre de lignes correspondantes
+# Liste pour stocker les indices des lignes avec des erreurs
+indices_erreurs = []
 
-        # Si le Code_CIS n'existe pas dans Specialites, ignorer la ligne
-        if result == 0:
-            print(f"Ignorer la ligne avec le Code_CIS {code_cis} car il n'existe pas dans la table Specialites")
-            continue
+# Exécution de la requête pour chaque ligne de données
+for index, row in enumerate(donnees, 1):
+    try:
+        mycursor.execute(sql, row)
+    except mysql.connector.Error as err:
+        indices_erreurs.append(index)
 
-        # Insertion des données dans la table
-        mycursor.execute('INSERT INTO Groupes_generiques VALUES (%s,%s,%s,%s,%s)', data)
+# Supprimer les lignes avec des erreurs de la liste des données
+donnees_sans_erreurs = [donnees[i - 1] for i in range(1, len(donnees) + 1) if i not in indices_erreurs]
 
-# Commit et fermeture de la connexion
+# Validation de la transaction
 mydb.commit()
+
+# Réactiver la vérification des clés étrangères
+mycursor.execute("SET FOREIGN_KEY_CHECKS=1")
+
+# Fermeture de la connexion à la base de données
 mydb.close()

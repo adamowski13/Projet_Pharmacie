@@ -12,6 +12,7 @@ class Connexion(QWidget):
         # Initialise l'interface utilisateur
         self.init_ui()
 
+
     def init_ui(self):
         # Configure les propriétés de la fenêtre principale
         self.setWindowTitle('Écran de Connexion')
@@ -25,7 +26,7 @@ class Connexion(QWidget):
 
         # Préremplit les champs de saisie avec les valuers de test
         self.entrée_utilisateur.setText('root')
-        self.entrée_mdp.setText('1308')
+        self.entrée_mdp.setText('1409')
 
         self.entrée_mdp.setEchoMode(QLineEdit.Password)
         self.bouton_connexion = QPushButton('Se Connecter')
@@ -50,18 +51,18 @@ class Connexion(QWidget):
 
         # Récupère les informations saisies par l'utilisateur
         nom_utilisateur = self.entrée_utilisateur.text()
-        mot_de_passe = self.entrée_mdp.text()
+        mot_de_passe = hashlib.sha256(self.entrée_mdp.text().encode()).hexdigest()
 
         # Hash le mot de passe
-        hashed_password = hashlib.sha256(mot_de_passe.encode()).hexdigest()
+        hashed_password = mot_de_passe
 
         # Se connecte à la base de données
         try:
             mydb = mysql.connector.connect(
-                host="localhost",
-                user="root",
-                password="1308",
-                database="testdb"
+                host="mysql-pharmacieapi.alwaysdata.net",
+                user="358438_admin",
+                password="Bartra-23!",
+                database="pharmacieapi_data"
             )
             mycursor = mydb.cursor()
 

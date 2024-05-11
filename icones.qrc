@@ -11,5 +11,6 @@
 		<file>icones/pharmacie.png</file>
 		<file>icones/utilisateur.png</file>
 		<file>icones/stock.png</file>
+		<file>icones/ordonnace.png</file>
 	</qresource>
 </RCC>

@@ -6,6 +6,6 @@ def hash_string2(string):
     return hashed_string
 
 # Exemple d'utilisation de la fonction
-string_to_hash = "burak"
+string_to_hash = "1409"
 hashed_result = hash_string2(string_to_hash)
 print("Le hash de la chaîne '{}' est : {}".format(string_to_hash, hashed_result))
